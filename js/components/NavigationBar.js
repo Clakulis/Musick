@@ -40,7 +40,7 @@ class NavigationBar extends BaseComponent{
         this._shadowRoot.innerHTML= /*html*/ `
             ${style}
             <div class="navigation-bar">
-                <img src="../media/icon.png" alt="" class="icon">
+                <img src="https://github.com/Clakulis/Musick/blob/main/media/icon.png" alt="" class="icon">
                 <div class="upload">UPLOAD</div>
                 <div class="user">USER</div>
             </div>`
