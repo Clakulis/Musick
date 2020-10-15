@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musick</title>
+    <link rel="icon" href="./media/icon.png">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDimUyljhILaH2GTbdcOt31YwtrPmbOBS8",
+        authDomain: "cijs48-tquan.firebaseapp.com",
+        databaseURL: "https://cijs48-tquan.firebaseio.com",
+        projectId: "cijs48-tquan",
+        storageBucket: "cijs48-tquan.appspot.com",
+        messagingSenderId: "336148152830",
+        appId: "1:336148152830:web:00fa4c881064a86dbb80af"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+      var imagesRef = storageRef.child('images');
+      var musicsRef = storageRef.child('musics');
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="//unpkg.com/navigo@6"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <style>
+        body{
+          padding:0;
+          margin:0;
+        }
+    </style>
+</head>
+<body>
+    <article id="app">
+      <register-screen></register-screen>
+    </article>
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
