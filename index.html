@@ -37,17 +37,27 @@
     <script src="//unpkg.com/navigo@6"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-    <style>
-        body{
-          padding:0;
-          margin:0;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <article id="app">
       <register-screen></register-screen>
     </article>
+    <audio src="" id="song"></audio>
+    <div id="song-bar">
+      <div id="left-div">
+      <img src="" alt="" id="song-img">
+      </div>
+      <div id="mid-div">
+      <div id="song-name">song name</div>
+      <input type="range" min="0" max="" value="0" id="progress-bar">
+      <div class="currentTime"></div>
+      <div class="durationTime"></div>
+      </div>
+      <div id="right-div">
+      <img src="./media/play.png" alt="" id="play-pause">
+      </div>
+    </div>
     <script src="./js/index.js" type="module"></script>
 </body>
 </html>

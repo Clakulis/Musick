@@ -71,14 +71,16 @@ class PlaylistContainer extends BaseComponent {
                 response.push(this.props.sid);
                 await firebase.firestore().collection('playlists').doc(this.props.pid).update({
                     musics:response,
-                })
+                });
+                alert('Added to playlist');
             }
         }
         this.$deleteBtn.onclick = ()=>{
             console.log(this.props.pid)
             firebase.firestore().collection('playlists').doc(this.props.pid).delete()
             .then(() => {
-                console.log('deleted');
+                alert('Playlist deleted');
+                location.reload();
             })
             .catch(err => {
                 console.log(err)

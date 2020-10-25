@@ -1,5 +1,94 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border:0;
 }
+
+#song-bar{
+    position:fixed;
+    bottom: 0px;
+    width:100%;
+    height: 60px;
+    display: flex;
+}
+
+#left-div{
+    display:inline-block;
+    width:30%;
+    height:100%;
+    background-color: #494D5F;
+}
+#song-img{
+    display: inline-block;
+    height:40px;
+    width:40px;
+    margin-top:10px;
+    margin-left:80%;
+    
+}
+
+#mid-div{
+    display:inline-block;
+    width: 40%;
+    padding:10px;
+    background-color: #494D5F;
+}
+#song-name{
+    display:block;
+    color:#E5EAF5;
+    font-weight:bold;
+}
+
+#progress-bar{
+    display:inline-block;
+    background:#8458B3;
+    width:400px;    
+}
+#right-div{
+    display:inline-block;
+    width: 30%;
+    padding:10px;
+    background-color: #494D5F;
+}
+
+#play-pause{
+    height:40px;
+    width:40px;
+}
+
+.currentTime{
+    margin-left:10px;
+    display:inline-block;
+    color:#E5EAF5;
+
+}
+
+.durationTime{
+    display:inline-block;
+    color: #E5EAF5;
+}
+/* style for the progress bar's slider thumb */
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -3px;
+    margin-left: 0px;
+    height: 10px;
+    width: 7px;
+    border: 0;
+    background: -webkit-linear-gradient(45deg, rgb(213, 213, 213), rgb(193, 255, 6));
+    border-radius: 30px;
+    cursor: pointer;
+}
+/* style for the progress bar's runnable track */
+#progress-bar::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    max-height: 5px;
+    border-radius: 30px;
+}
+/* style to remove blue shade of the progress bar when clicked on/selected */
+#progress-bar:focus {
+    outline: none;
+}
+

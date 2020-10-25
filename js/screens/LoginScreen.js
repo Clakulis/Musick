@@ -9,9 +9,9 @@ let style=/*html*/ `
         align-items:center;
         width:100%;
         height: 100vh;
-        background-color: #E5EAF5;  
-        background-image: url(../media/LogoMakr-6JCfkQ.png);
+        background-image: url(../../media/background1.jpg);
         background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .form-login{

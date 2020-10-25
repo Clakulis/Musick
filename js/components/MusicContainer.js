@@ -1,4 +1,4 @@
-import {BaseComponent} from "../BaseComponent.js";
+import { BaseComponent } from "../BaseComponent.js";
 import { download, getDataFromDoc } from "../utils.js";
 
 let style = /*html*/ `
@@ -39,36 +39,36 @@ let style = /*html*/ `
         right:24%;
     }
 </style>`
-class MusicContainer extends BaseComponent{
-    constructor(){
+class MusicContainer extends BaseComponent {
+    constructor() {
         super();
 
         this.props = {
-            "link-image":'',
-            name:'',
-            "link-audio":'',
-            locate:'',
-            docid:'',
-            pid:''
+            "link-image": '',
+            name: '',
+            "link-audio": '',
+            locate: '',
+            docid: '',
+            pid: ''
         }
     }
 
-    static get observedAttributes(){
-        return ['link-image','name','link-audio','locate','docid','pid'];
+    static get observedAttributes() {
+        return ['link-image', 'name', 'link-audio', 'locate', 'docid', 'pid'];
     }
 
-    render(){
-        
-        let html='';
-        let checkid=false;
-        if(this.props.pid==''){
+    render() {
+
+        let html = '';
+        let checkid = false;
+        if (this.props.pid == '') {
             html = /*html*/`<button class="add-to-playlist">➕</button>
             <button class="download-btn">⬇</button>`
         } else {
             html =/*html*/`<button class="add-to-playlist">➕</button>
                     <button class="remove-from-playlist">✖</button>
                     <button class="download-btn">⬇</button>`
-                    checkid=true;
+            checkid = true;
         }
         this._shadowRoot.innerHTML = /*html*/ `
             ${style}
@@ -79,28 +79,41 @@ class MusicContainer extends BaseComponent{
                 </div>
             </div>
             `
+        this.$image = this._shadowRoot.querySelector('.image');
+        this.$image.onclick = () => {
+            document.querySelector('#song-img').setAttribute('src', this.props["link-image"]);
+            document.querySelector('#song-name').innerHTML=this.props.name;
+            document.querySelector('#song').setAttribute('src', this.props["link-audio"]);
+            document.querySelector('#play-pause').setAttribute('src','../../media/pause.png');
+            song.play();
+        }
         this.$addToPlayList = this._shadowRoot.querySelector('.add-to-playlist')
-        this.$addToPlayList.onclick = ()=>{
+        this.$addToPlayList.onclick = () => {
             router.navigate(`/user/${this.props.docid}`);
         }
         this.$downloadBtn = this._shadowRoot.querySelector('.download-btn');
-        this.$downloadBtn.onclick = async ()=>{
+        this.$downloadBtn.onclick = async () => {
             let response = await firebase.firestore().collection('musics').doc(this.props.docid).get();
             let link = getDataFromDoc(response).linkAudio;
             download(link, `music${new Date().getTime()}.mp3`)
         }
-        this.$removeFromPlaylist = this._shadowRoot.querySelector('.remove-from-playlist')
-        if(this.props.pid!=''){
-            this.$removeFromPlaylist.onclick = async ()=>{
+        this.$removeFromPlaylist = this._shadowRoot.querySelector('.remove-from-playlist');
+        if (this.props.pid != '') {
+            this.$removeFromPlaylist.onclick = async () => {
                 let response = await firebase.firestore().collection('playlists').doc(this.props.pid).get();
+                console.log(getDataFromDoc(response));
                 let responses = getDataFromDoc(response).musics;
-                for(let i = 0; i<responses.length;i++){if(this.props.docid==responses[i])responses.slice(i,i+1)}
-                await firebase.firestore().collection('playlists').doc(this.props.id).update({
-                    musics:responses,
+                for (let i = 0; i < responses.length; i++) { 
+                    if (this.props.docid == responses[i]) 
+                        responses.splice(i, i + 1) };
+                await firebase.firestore().collection('playlists').doc(this.props.pid).update({
+                    musics: responses,
                 })
+                alert('Removed from playlist')
+                location.reload();
             }
         }
     }
 }
 
-window.customElements.define('music-container',MusicContainer)
+window.customElements.define('music-container', MusicContainer)

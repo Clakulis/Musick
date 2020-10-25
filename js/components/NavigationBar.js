@@ -13,7 +13,6 @@ let style = /*html*/ `
     }
 
     .icon{
-        width:;
         height:80%;
         display:inline-block;
     }
@@ -40,15 +39,15 @@ class NavigationBar extends BaseComponent{
         this._shadowRoot.innerHTML= /*html*/ `
             ${style}
             <div class="navigation-bar">
-                <img src="https://github.com/Clakulis/Musick/blob/main/media/icon.png" alt="" class="icon">
+                <img src="../../media/icon.png" alt="" class="icon">
                 <div class="upload">UPLOAD</div>
                 <div class="user">USER</div>
-            </div>`
-        
-        let logo = this._shadowRoot.querySelector('.icon');
+            </div>
+            `
+        let icon = this._shadowRoot.querySelector('.icon');
         let upload = this._shadowRoot.querySelector('.upload');
-        let user = this._shadowRoot.querySelector('.user');
-        logo.onclick = ()=>{
+        let user = this._shadowRoot.querySelector('.user')
+        icon.onclick = ()=>{
             router.navigate('/index');
         }
         upload.onclick = ()=>{

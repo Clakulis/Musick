@@ -7,10 +7,10 @@ let style=/*html*/ `
         justify-content:center;
         align-items:center;
         width:100%;
-        height: 100vh;
-        background-color: #E5EAF5;  
-        background-image: url(../media/LogoMakr-6JCfkQ.png);
+        height: 100vh; 
+        background-image: url(../../media/background1.jpg);
         background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .form-register{
@@ -20,6 +20,7 @@ let style=/*html*/ `
         border: #494D5F solid 3px;
         box-shadow: 5px 5px #494D5F;
         border-radius:25px;
+        margin:0 auto
     }
 
     .header{
@@ -28,6 +29,7 @@ let style=/*html*/ `
         padding:20px;  
         font-weight:bold;
         border-radius: 25px 25px 0 0;
+        margin:0;
     }
 
     .btn-register {

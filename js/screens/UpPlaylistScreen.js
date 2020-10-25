@@ -10,6 +10,10 @@ let style=/*html*/ `
     .upplaylist-screen{
         display:flex;
         justify-content:center;
+        background-image: url(../../media/background2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100vh;
     }
     .upload-form{
         margin-top:100px;
@@ -19,6 +23,7 @@ let style=/*html*/ `
         border: #494D5F solid 3px;
         box-shadow: 5px 5px #494D5F;
         border-radius:25px;
+        height:280px;
     }
     .upload-btn {
         background-color: #8458B3;
@@ -108,10 +113,10 @@ class UpPlaylistScreen extends BaseComponent {
                     owner: currentUser.email,
                     musics:[],
                 });
-
+                alert('Upload Successful');
                 this.$formUpload.reset();
             }
-
+            
             this.setState(this.state);
         }
     }

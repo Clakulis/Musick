@@ -5,6 +5,9 @@ const style = /*html*/ `
     .user-screen{
         background-color:#E5EAF5;
         height:100vh;
+        background-image: url(../../media/background2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .tupp-btn {
         background-color: #8458B3;
